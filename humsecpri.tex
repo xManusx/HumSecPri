@@ -1,6 +1,8 @@
-\documentclass[a4paper]{scrartcl}
+\documentclass[a4paper,12pt]{scrartcl}
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{makeidx}
@@ -249,6 +251,343 @@
 			\item
 				Analyses strength of the policy, not the password (strength of \enquote{password} is roughly the same as of \enquote{p4\$\$w0rd}, policy of the latter is much stronger)
 		\end{itemize}
+	\item
+		Strength of password policies in the wild: FAU IdM much stronger than the rest ($48 > 20-27$)
+
+		Sites with advertising often much weaker policies $\Rightarrow$ want user to sign up, password policies prevent that!
+\end{itemize}
+\subsection{Attacks on passwords}
+\begin{itemize}
+	\item
+		Client: local attacks (shoulder surfing, post-its), social engineering, keyloggers
+	\item
+		Network:
+		eavesdropping, MitM
+	\item
+		Server frontend: Online guessing (brute-force/dictionary) --- breadth-first (target all accounts), depth-first (target particular account), stealthy attacks (distributed in time)
+	\item
+		Server backend: offline guessing (prerequisite: obtain password database)
+	\item[$\Rightarrow$] strong password policies protect against offline guessing attacks --- offline guessing attacks only feasible when password database is leaked, leak is not detected and passwords are salted and hashed
+	\item
+		Lookup tables/Rainbow tables: TODO
+		\begin{itemize}
+			\item
+				Pre-compute hashes of passwords and look them up
+			\item
+				Password spaces quite big (10 ULNS policy needs more than $2^{65}$ hashes $ \mathrel{\widehat{=}} 1000$ Exabyte)
+		\end{itemize}
+	\item
+		Online-offline chasm:
+		\begin{itemize}
+			\item
+				Strength of passwords against online guessing: $10^4 - 10^6$ guesses
+			\item
+				Strength of passwords against offline guessing: $10^{14} - 10^{20}$ guesses
+		\end{itemize}
+		
+	\item
+		Summary to strong passwords:
+
+		Strong passwords\dots
+		\begin{itemize}
+			\item
+				reduce risk of offline guessing (iff database is hashed and salted)
+			\item
+				reduce risk of online guessing (but with lock-out and monitoring much weaker passwords are sufficient)
+			\item
+				might reduce risk against shoulder surfing and insider guessing
+			\item
+				don't protect against: malware, phishing, network attacks
+			\item
+				might increase risk of password reuse and writing down
+		\end{itemize}
 \end{itemize}
 
+\subsection{Password Reuse}
+\begin{itemize}
+	\item
+		\fullcite{tangledpasswordreuse}
+		\begin{itemize}
+			\item
+				Study of password reuse with leaked passwords from eleven web sites
+			\item
+				Lots of reuses: 43\% identical, 19\% substrings
+			\item
+				Often tricks to transform passwords to comply with policies
+		\end{itemize}
+	\item
+		\fullcite{florencio2014password}
+		\begin{itemize}
+			\item
+				Lots of effort to remember which password belongs to which account \\
+				($\log_2(N!)$, for N unique and random passwords)
+			\item
+				Unique passwords is not the optimal solution $\Rightarrow$ optimally, people should reuse passwords, group by account value and probability of compromise
+		\end{itemize}
+	\item
+		Password Sharing
+		\begin{itemize}
+			\item
+				Reasons for password sharing: practical needs (if something happens to me, delegation, disabilities), social norms (as a sign of trust, to show you're not paranoid, I'm a normal, nice, helpful person)
+		\end{itemize}
+	\item
+		Password Change
+		\begin{itemize}
+			\item
+				\fullcite{zhang2010security}
+			\item
+				Access to expired passwords at university, assuming knowledge of at least one password, guessed 17\% in 5 tries or lower (online), 41\% in under 3 seconds of offline attacking
+		\end{itemize}
+	\item
+		Password Management 101
+		\begin{itemize}
+			\item
+				Providers:
+				\begin{itemize}
+					\item
+						Reasonable password policies and SSO
+					\item
+						Protection from offline guessing (hashed and salted, detect offline attacks e.g. with decoy accounts)
+					\item
+						Protection from online guessing (lock out after some failures, detect stealth attacks)
+					\item
+						Be prepared (usable and secure account recovery mechanisms, actionable strategies for the case of mass breaches)
+				\end{itemize}
+			\item
+				Users
+				\begin{itemize}
+					\item
+						Group passwords by account importance and attack probability (non important passwords can be reused; are users capable of distinguishing non/important accounts? Of determining attack probability?)
+					\item  
+						Don't reuse passwords on really important accounts
+					\item
+						Use aids for password management (password managers, secure writing down)
+				\end{itemize}
+		\end{itemize}
+	\item
+		Alternatives to passwords: graphical authentication, biometrics, tokens, 2FA
+\end{itemize}
+
+\section{Usable Security}
+\begin{itemize}
+	\item
+		Usability: the extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisfaction in a specified context of use.
+		\begin{itemize}
+			\item
+				Effectifeness: accuracy and completeness
+			\item
+				Efficiency: resources expended in relation to accuracy and completeness
+			\item
+				Satisafction: freedom from discomfort, and positive attitude to use of product
+			\item
+				context of use: characteristics of the users, tasks and environment
+			\item
+				Goal: intended outcome
+			\item
+				Task: activities required to achieve a goal
+		\end{itemize}
+	\item
+		Usability Intervention at IBM 1989
+		\begin{itemize}
+			\item
+				Field study: user group, environment, task (not authenticate, but \textit{do these 4 transactions})
+			\item
+				3 iterations (from mock-up to test code)
+			\item
+				100\% return on invested money, through time  saved while authenticating
+		\end{itemize}
+	\item
+		\fullcite{johnnyencrypt}
+		\begin{itemize}
+			\item
+				Security software is usable if people who are expected to use it:
+				\begin{enumerate}
+					\item
+						Are reliably made aware of the security tasks they need to perform
+					\item
+						are able to figure out how to successfully perform those tasks
+					\item
+						don't make dangerous errors
+					\item
+						are sufficiently comfortable with the interface to continue using it
+				\end{enumerate}
+			\item
+				experienced email users, no knowledge in cryptography in a lab, 12 participants
+		\end{itemize}
+	\item
+		\fullcite{johnny2015}
+		\begin{itemize}
+			\item
+				10 pairs of students, exchange tax return information with Mailvelope
+			\item
+				Results desastrous, only 1 pair completed the task (one of them knew about public key crypto before)
+			\item
+				All without attacker interference!
+		\end{itemize}
+	\item
+		\fullcite{johnny2}
+		\begin{itemize}
+			\item
+				Send sensitive data with Outlook and S/MIME, certificates are pre-loaded into mail clients of participants
+			\item
+				Participants don't know they are going to be attacked
+			\item
+				New Key attack: \enquote{computer problems}, send schedule to new address, new address has unmatching key from old address
+			\item
+				New Identity attack: \enquote{working from home}, new hotmail email with a new public key and misspelled email address (sara instead of sarah)
+			\item
+				Unsigned message attack: attacker impersonates manager being annoyed, known address, unsigned mail. Send schedule to team members NOW as they really need it
+			\item
+				3 groups: unmodified outlook, outlook with color coding (for secure and unsecure messages) and color coding + briefing about meaning of colors
+			\item
+				Conclusion: usable email clients help \textit{sometimes}: resisting attacks better with color/color+briefing, clicked encrypt is worse than with unmodified
+
+				Some users did not trust \textit{hotmail}, ability to encrypt a message for the sender taken for indicator that the sender is genuine
+		\end{itemize}
+	\item
+		Why is usable security hard?
+
+		Usability: the extent to which a product can be used by specified users to achieve specified goals with effectiveness, efficiency and satisafaction in a specified context of use
+		\begin{itemize}
+			\item
+				Product: Security is often integrated/part of product
+			\item
+				User Goals: Security = secondary goal
+			\item
+				Effectiveness: how can security be noticed? Often invisible
+			\item
+				Efficiency: additional time \& user effort
+			\item
+				Satisfaction: can people be satisfied with something that demands additional effort? Maybe better: low dissatisfaction?
+			\item
+				context of use: How to take attacks into account?
+		\end{itemize}
+	\item
+		Benenson defintion of usable security:
+		\begin{itemize}
+			\item
+				Usability of a security mechanism or policy
+			\item
+				is the extent to which the machnism or policy can be used by
+			\item
+				specified users
+			\item
+				to achieve the specified security goal (some of these goals being invisible or secondary goals to the users)
+			\item
+				and the specified primary goals
+			\item
+				with effectiveness, efficiency and satisfaction (or at least with low dissatisfaction)
+			\item
+				during the execution of the specified primary user tasks
+			\item
+				in a specified context of use
+			\item
+				including the specified attacks
+		\end{itemize}
+\end{itemize}
+\subsection{Beyond Usability}
+\begin{itemize}
+	\item
+		Is usability \& security a trade-off? long random passwords, single password per account, encrypted email, \dots
+		\begin{itemize}
+			\item
+				Security versus Usability: security restricts/prohibits, usability enables
+			\item
+				Security aligned with Usability: Usability enables actions with desirable results, security restricts actions with undesirable results
+		\end{itemize}
+	\item
+		Can't just add security to finished product $\Rightarrow$ usability will suffer
+	\item
+		Approaches to usable security (Apply in this order!)
+		\begin{itemize}
+			\item
+				Invisible security: Make it just work, automated and invisible
+			\item
+				Understandable security: Make it visible and intuitive
+			\item
+				Train the users: effort should match benefit
+		\end{itemize}
+	\item
+		Alternatives to passwords for web authentication:
+		\begin{itemize}
+			\item
+				Criteria: Usability; Security/Privacy; Deployability
+			\item
+				Evaluated 35 alternative techniques: graphical passwords/PINs, Biometrics, Tokens, 2FA
+			\item
+				Results: many techniques would be better for security and privacy buuuut none has better deployability (for Web)
+		\end{itemize}
+	\item
+		Usability criteria for web authentication:
+		\begin{itemize}
+			\item
+				Memorywise (quasi) effortless
+			\item
+				Scalable for users (many accounts)
+			\item
+				Nothing to carry (or something the user carries anyway)
+			\item
+				Physically effortless (beyond pressing a button)
+			\item
+				Easy to learn
+			\item
+				Efficient to use (time)
+			\item
+				Infrequent errors
+			\item
+				Easy recovery from loss
+		\end{itemize}
+
+		Security and privacy criteria: resilience to
+		\begin{enumerate}
+			\item
+				Physical observation
+			\item
+				targeted impersonation (having personal info about user does not help)
+			\item
+				throttled guessing (guessing attempts are constrained by service provider)
+			\item
+				Unthrottled guessing (attacker constrained only by computational resources)
+			\item
+				Internal observation (intercept users input)
+			\item
+				Leaks at other service providers
+			\item
+				Phishing
+			\item
+				theft of physical token (or at least pin protection)
+			\item
+				No trusted third party
+			\item
+				Explicit consent (authentication cannot be startet without user knowledge or consent)
+			\item
+				Unlinkable (colluding service providers cannot track the users from their authentication data)
+			\item
+				Privacy-protecting (does not reveal additional information about the user to the service provider / attacker
+		\end{enumerate}
+
+		Deployability Criteria
+		\begin{enumerate}
+			\item
+				Accessible
+			\item
+				Low cost per user
+			\item
+				Server-compatible
+			\item
+				Browser-compatible
+			\item
+				Mature (User testing, open source implementations, real-world deployments)
+			\item
+				Non-proprietary
+		\end{enumerate}
+	\item
+		Why doesn't Jane protect her Privacy? Renaud et.al.
+		\begin{itemize}
+			\item
+				Qualitative study
+		\end{itemize}
+\end{itemize}
+
+%\input{example_questions.tex}
 \end{document}
