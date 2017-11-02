@@ -1,5 +1,4 @@
 \documentclass[a4paper,12pt]{scrartcl}
-\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -589,5 +588,523 @@
 		\end{itemize}
 \end{itemize}
 
-%\input{example_questions.tex}
+\section{Cyberfraud}
+\begin{itemize}
+	\item
+		Fraud: crime of intentional deception
+	\item
+		Phishing: gain secret information (often via email)
+	\item
+		Scam: gain money (f2f/long distance: letters, emails)
+	\item
+		Social engineering: manipulate people. Gain information, make them perform action
+\end{itemize}
+\subsection{Phishing}
+\begin{itemize}
+	\item
+		\fullcite{socialphishing}
+		\begin{itemize}
+			\item
+				Crawl online social network sites, send phishing email with a link 
+				and \enquote{hew, check this out!}
+			\item
+				Social phishing group: from an OSN friend, control group: \enquote{Normal} phishing
+			\item
+				Ask to log into website with phishy link, forward credentials to real website
+			\item
+				Results:
+				\begin{itemize}
+					\item
+						Control group: 16\% phished, Social phishing group: 72\% phished
+					\item
+						Big ethics outcry: students were not aware they participated in the experiment, only prof, Insitutional Review Board and 2 IT guys knew
+					\item
+						Students who were phished complained (university took their trust and threw it out of the window) and students whose emails were used to phish, IT Department
+				\end{itemize}
+		\end{itemize}
+	\item
+		\fullcite{jakobsson2008}
+		\begin{itemize}
+			\item
+				Harm done? Credentials obtained? Other forms?
+			\item
+				Informed consent before the experiment obtained?
+			\item
+				Debriefing: yes or no? What causes more harm?
+		\end{itemize}
+	\item
+		\fullcite{downs2006decision}
+		\begin{itemize}
+			\item
+				How do people decide over trustworthiness of emails?
+			\item
+				20 participants, role playing, didn't know experiment was about phishing or scam
+			\item
+				Results 
+				\begin{enumerate}
+					\item
+						This email seems to be for me
+					\item
+						It's normal to hear from companies you do business with
+					\item
+						Reputable companies will send emails
+				\end{enumerate}
+
+		\end{itemize}
+	\item
+		\fullcite{2006phishing}
+		\begin{itemize}
+			\item
+				20 e-commerce or banking websites (7 real, other collected or constructed)
+			\item
+				22 participants, distinguish which sites are fake
+			\item
+				Good phishing worked on 90\% of users
+			\item
+				Certificate warnings and security indicators were ignored a lot
+			\item
+				Independent of education, age, sex, computer experience
+			\item
+				Decision strategies: Security indicators in website content only, Content and domain name only, Content and address, plus \textsc{https}, All the above plus padlock icon, All the above plus certificates (kind of sorted by strength)
+		\end{itemize}
+	\item
+		\fullcite{2015phishing}
+		\begin{itemize}
+			\item
+				Lab experiment, identify phishing websites
+			\item
+				Participants average success rate of 53\% for identifying phishing websites $\Rightarrow$ guessing
+			\item
+				While making decisions, only 6\% of time looking at security indicators, 85\% looking at contents of webpage
+			\item
+				Technical proficency does not correlate with improved detection scores
+		\end{itemize}
+	\item
+		Spear-Phishing: Trageting a group / an individual (by name, spoof trusted sender, plausible content)
+	\item
+		Studies by Benenson et.\ al.
+		\begin{itemize}
+			\item
+				Questions:
+				\begin{itemize}
+					\item
+						Email vs. Facebook, differences in attack effectiveness
+					\item
+						Reasons for clicking and not clicking?
+				\end{itemize}
+			\item
+				Consent \& Deception: participants recruited for survey about \enquote{online behavior} + Debriefing about real aim of study
+			\item
+				Study 1 (with name): more effective via email
+			\item
+				Study 2 (without name): more effective via facebook
+			\item
+				Nach (nicht-)klicken Nachricht mit Bitte warum (nicht) geklickt wurde
+			\item
+				Analysemethode der Antworten: 
+				\begin{itemize}
+					\item
+						Qualitative Content Analysis
+					\item
+						Iteratice Coding
+					\item
+						2 Raters and Cohens Kappa\footnote{How much the correlation between the 2 ratings differs from random}
+				\end{itemize}
+			\item
+				Reasons for clicking:
+				\begin{itemize}
+					\item
+						Curiosity / interest (34\%)
+					\item
+						Plausible content, fits expectations (27\%)
+					\item
+						Investigation (17\%)
+					\item
+						Technical context, Fear, Automatic reaction
+				\end{itemize}
+				
+			\item
+				What makes people click:
+				\begin{itemize}
+					\item
+						Personalization
+					\item
+						Plausible content and context
+					\item
+						Emotions: curiosity, interest, fear
+					\item
+						Risk underestimation
+					\item
+						automatic reactions
+				\end{itemize}
+			\item
+				reasons for not clicking:
+				\begin{itemize}
+					\item
+						Unknown sender, suspicion of fraud, situation context, life context, rule of conduct, privacy
+				\end{itemize}
+		\end{itemize}
+	\item
+		Measures against Phishing
+		\begin{itemize}
+			\item
+				Invisible Security
+				\begin{itemize}
+					\item
+						Detection an blocking on provider side: takes up to 12 hours, lots of clicks in the first 2 hours, links  mostly work for less than 24 hours
+					\item
+						Automatic detection on user side: too many false negatives and false positives
+				\end{itemize}
+			\item
+				Understandable security:
+				\begin{itemize}
+					\item
+						Indicators / warnings
+					\item
+						Poor accuracy of automatic detection
+					\item
+						People do not notice, get habituated
+				\end{itemize}
+			\item
+				Training / education: What is feasible / effective?
+		\end{itemize}
+	\item
+		Awareness Requirements on Users: Be suspicious, even if you know the sender, the message fits your current situation and fits your work and life practices
+
+		Be suspicious of everything!
+	\item
+		Decision making by Kahneman: two ways System 1 (intuition, effortless) and System 2 (rational reasoning)
+	\item
+		Can we make users aware by catching them on insecure behavior? Phishing as a service?
+		\begin{itemize}
+			\item
+				2015 Police division in Berlin
+			\item
+				Email: Store all your work and private passwords in the secure password storage of the Berlin police. Corporate Design, Signature from non-existing person
+			\item
+				Half of subjects clicked, 7.5\% gave their credentials (35 individuals)
+			\item
+				Technical solution: visually distinguish internal \& external emails to help the users, save effort and avoid mistakes
+		\end{itemize}
+	\item
+		Why is (Spear) phishing awareness difficult?
+		\begin{itemize}
+			\item
+				Security aware behavior is difficult to maintain (constant vigilance, system 2) is tiring and unhealthy
+			\item
+				Life and work practices clash with expected security behavior: people receive lots of attachments, how can they distinguish legitimate ones? Lots of (wasted?) time, when checking every link received
+			\item
+				Social norms clash with expected security behavior (\enquote{what would they think if I [insert security behavior]}) See door policy
+				
+		\end{itemize}
+	\item
+		Countermeasures: What do you want people to \emph{do}? Will they be \emph{able} to do this? Effects on Producitvity, well-being, trust relationships. Evidence needed!
+	\item
+		Should we train users at all? Is the defense worth the effort?
+	\item
+		\fullcite{herley2009so}
+		\begin{itemize}
+			\item
+				Fully rational individual user should reject most of the security advice existing today. Focus on individual users, not businesses
+			\item
+				Cost-benefict calculations:
+				\begin{itemize}
+					\item
+						Protect from direct costs: attacks --- small or unknown costs
+					\item
+						Burden with indirect costs (externalities) through following security advice --- larce costs (time, nerves, money)
+				\end{itemize}
+			\item
+				US phsihing annual costs of \$60 million
+			\item
+				US online population of 180 million users
+			\item
+				33 cents per person per year
+			\item
+				With minimum wage, anti-phishing education should be 2.6 minutes annually
+		\end{itemize}
+	\item
+		And in Germany?
+		\begin{itemize}
+			\item
+				Phishing Cost 2014 (peak): 27.9 million EUR
+			\item
+				Online Banking Users: 37 million people
+			\item
+				75 cents per year
+			\item
+				5.3 minutes per year
+		\end{itemize}
+	\item
+		Pishing Risk = probability of attack * cost of attack
+		\begin{itemize}
+			\item
+				Probability of being phished: 7000 cases in 2014, $37\times10^6$ customers $\Rightarrow$ 0.0002
+			\item
+				Expected cost of being phished: 28 Mio / 7000 cases = 4000 EUR per case
+			\item
+				Expected effort for getting money back if phished: 1 day (8 h), 1 week (40 h), 5 weeks (200h)?
+
+				Average wage is 20 EUR/h, even with 5 weeks only 4000 Euro
+			\item
+				Risk of being phished = probability of attack * cost of attack $\Rightarrow 0.0002 \times4000 = 0.8$ EUR
+			\item
+				Only applicable for individual users, not businesses
+		\end{itemize}
+	\item
+		RSA breach (2011)
+		\begin{itemize}
+			\item
+				Started with spear phishing emails to small groups of employees (not high profile or high value target)
+			\item
+				One employee in HR received mail out of their junk folder (to make attack detection more difficult), double-clicked on the email attachement (because fits job expectation, curiosity)
+			\item
+				Consequences: SecureID maybe hacked, very popular 2FA tool, 40 millions tokens changed
+
+				70 Million USD spent on aftermath of attack  
+			\item
+				Perimeter security (don't let attackers in!) failed, but in-depth defenses worked
+		\end{itemize}
+	\item
+		Feasibility of Anti-Phishing Training
+		\begin{itemize}
+			\item
+				Perimeter defense against spear phishing is difficult (exploit indispensable human characteristics, heuristics, work and life practices)
+			\item
+				False negatives: How to tell a fraud attempt from legitimate requests?
+		\end{itemize}
+	\item
+		Effectiveness of Anti-Phishing Training: 50\%$\rightarrow$75--85\% with students.
+
+		No evidence of effectiveness in real-world business environment
+\end{itemize}
+\subsection{Scam}
+\begin{itemize}
+	\item
+		\fullcite{herley2012nigerian}
+		\begin{itemize}
+			\item
+				Somebody who believes this, can be made to believe anything; somebody who does not fall for this is not worth the effort, at some point the are likely to notice that this is a scam
+		\end{itemize}
+	\item
+		\fullcite{lea2009psychology}
+		\begin{itemize}
+			\item
+				Study about scams in the UK, Interview with Scam Victims, Text Mining of scams, Scam Simulation
+			\item
+				Features of Scam Victims
+				\begin{itemize}
+					\item
+						Better than average knowledge and experience in the scam (prize draws, lottery, investments) area 
+					\item
+						Lack of emotional control
+
+					\item
+						More effort in cognitive analysis of Scam (\enquote{Is this a good offer? Should I? Why? Why not?})
+					\item
+						Long-odds gamble: little to loose, a lot to win? (Misunderstanding: cannot win)
+					\item
+						Hiding response to scam, even from their more rational selves
+				\end{itemize}
+			\item
+				How Scam works:
+				\begin{itemize}
+					\item
+						Appeals to trust and authority
+					\item
+						Visceral triggers (personalization, big money, urgency --- provoke intuitive reactions, reduce thinking)
+					\item
+						Scarcity cues (urgency and uniqueness)
+					\item
+						Behavioral commitment (small steps of compliance --- sunken cost fallacy?)
+					\item
+						Disproportion between prize and cost/effort --- phantom fixation: concentrate on the huge prize
+				\end{itemize}
+			\item
+				Conclusions:
+				\begin{itemize}
+					\item
+						Scam victims have distinct psychological features, but not bad decision makers generally
+					\item
+						10--20\% of UK population (estimated)
+				\end{itemize}
+		\end{itemize}
+	\item
+		Psychology of Persuasion:
+		\begin{itemize}
+			\item
+				How to influence people to do or think something (in IT security: Scam (make people exhibit bad behavior) or Security Mechanisms / Advice (Make them exhibit good behavior) )
+
+			\item
+				6 principles of Influence:
+				\begin{enumerate}
+					\item
+						Reciprocity (Erwiderung) --- I've done you good, so now you do me good
+					\item
+						Commitment and Consistency --- Once you made a choice or decided to do something, you usually proceed with doing this
+					\item
+						Social Proof --- if everybody around you is doing this, you will do this too (canned laughter in TV, looking in the same direction as everybody else)
+					\item
+						Authority --- just do/think what experts tell you do do / to think
+					\item
+						Liking --- Tupperware parties, famous athlete in ads, good cop / bad cop
+					\item
+						Scarcity --- It's urgent! Do it now, or you will lose opportunity / money
+				\end{enumerate}
+		\end{itemize}
+	\item
+		\enquote{The Real Hustle}
+
+		7 Principles:
+		\begin{enumerate}
+			\item
+				Distraction (Primary interest gets the whole attention, Nigerian Scam)
+			\item
+				Social Compliance (Follow authority or what other people are doing)
+			\item
+				Herd (If other people are doing that, then it's okay) (ex: Hütchenspiel and reputation systems, e.g. on amazon
+			\item
+				Dishonesty (if the victim can made to behave badly, then they are not likely to admit this fact to police, \dots (Nigerian Scams) )
+			\item
+				Kindness (People are generally nice and ready to help)
+			\item
+				Need and Greed (if somebody wants something very much, they disregard the risk)
+			\item
+				Time (Decisions under pressure are often suboptimal or wrong)
+		\end{enumerate}
+
+		In Exam, only need to explain the 6 or the 7 principles, not both
+\end{itemize}
+
+\subsection{Social Engineering}
+\begin{itemize}
+	\item
+		The art of Deception, by Mitnick, former hacker and social engineer
+	\item
+		Against Security: about security at airports, subways, cities. But can be applied to IT security. You only see security, but completly disregard other goals people have.
+	\item
+		Defense against Social Engineering
+		\begin{itemize}
+			\item
+				\enquote{Pretexting}: use an invented scenario to obtain information
+
+				Example: private detective wants to find out health status of person under observation. Call doctor or insurance of person, claiming to be a doctor from another hospital, having the POI under their care in coma
+
+				One insurance in the UK, about 30 fake requests per week
+		\end{itemize}
+	\item
+		Trust bias (most people are trustworthy) vs deception bias (most people are deceicive) (see System 1/2)
+	\item
+		What would be the consequences of constant vigilance?
+\end{itemize}
+
+
+\section{Usable security}
+\begin{itemize}
+	\item
+		Approaches to usable security
+		\begin{itemize}
+			\item
+				Invisible security
+				\begin{itemize}
+					\item
+						Automated filtering not good enough
+					\item
+						Other technical measures also no 100\% protection
+					\item
+						Automated security may confuse users
+				\end{itemize}
+			\item
+				Understandable security:
+				\begin{itemize}
+					\item
+						Can we help people recognize possible dangerous situations?
+					\item
+						WARNINGS: warn users about possible dangers and let them decide what to do
+				\end{itemize}
+			\item
+				Train the users
+				\begin{itemize}
+					\item
+						Phishing: user effort doesn not match benefit
+					\item
+						Training might be infeasible or have negative effects
+					\item
+						User training and education is difficult also in other security areas
+				\end{itemize}
+		\end{itemize}
+
+	\item
+		What does User awareness/training/education mean?
+
+		Sometimes it means Perception (I know there is a threat), sometimes Protection (I know threats and know solutions) and Behavior (I also act right)
+
+		Systematisation attempt by Benenson: Knowledge about threats (Awareness?), Knowledge about protection mechanisms (education?) and Behavior (Training?)
+	\item
+		Fear Messages / \enquote{How do Consumers react to Cybercrime?}
+		\begin{itemize}
+			\item
+				Fear deters from online banking more than actual identity theft
+		\end{itemize}
+	\item
+		\fullcite{stewart2012death}
+		\begin{itemize}
+			\item
+				Extended parallel process model
+			\item
+				See slides
+		\end{itemize}
+	\item
+		\fullcite{nielsen2004user}
+		\begin{itemize}
+			\item
+				Security is too complicated for users --- user education does not work
+			\item
+				User education puts burden on the wrong shoulders
+			\item
+				User education may scare people --- deter them from realizing full benefits of technology
+		\end{itemize}
+	\item
+		Alternatives to User Education
+		\begin{itemize}
+			\item
+				Differences between physical and virtual world $\Rightarrow$ Criminals in a virtual world have more possibilities, Users have less possibilities to notice attacks
+			\item
+				Technology changes to help users:
+				\begin{enumerate}
+					\item
+						Security Settings on by default
+					\item
+						Automate updates
+					\item
+						Provide usable security features
+					\item
+						Hunt down criminals
+				\end{enumerate}
+		\end{itemize}
+	\item
+		Automatic updates are problematic, because sometimes users think they have automatic updates while actually they don't
+	\item
+		Examples of invisible security?
+
+		Antivirusprogramme, SSL/TLS, Sandboxing, Typsicherheit von Programmiers
+	\item
+		\fullcite{edwards2008security}
+		\begin{itemize}
+			\item
+				Fixed policy: hard-coded in the system
+			\item
+				Customizable policy: set by experts or set by users (Firewalls, passwords, cookies)
+			\item
+				Dynamic policy: Spam filter
+			\item
+				Sometimes security measures are not appropriate (e.g. encrypted emails)
+			\item
+				Sometimes it's not polite to block \enquote{untrusted} websites
+			\item
+				Sometimes concerns and values of users and developers do not align (example passwords, )
+		\end{itemize}
+\end{itemize}
+
+\input{example_questions.tex}
 \end{document}
