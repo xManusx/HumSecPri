@@ -1103,8 +1103,679 @@
 				Sometimes it's not polite to block \enquote{untrusted} websites
 			\item
 				Sometimes concerns and values of users and developers do not align (example passwords, )
+			\item
+				Effects of automation / invisibility on UX
+				\begin{itemize}
+					\item
+						What is the system doing?
+					\item
+						If something gone wrong, my failure or system broken?
+					\item
+						Is the action taken irreversible?
+				\end{itemize}
+			\item
+				How accurate is the system?
+				\begin{itemize}
+					\item
+						Bad accuracy: ssl mistakes, junk filtesr
+					\item
+						Good accuracy: blacklisted phishing websites, updates based on digital signatures
+				\end{itemize}
+			\item
+				Even with cood accuracy, what happens in case of failure? should user be asked? Just continue to function? We need feedback about the state of the system!
+		\end{itemize}
+	\item
+		Questions to consider when developing automated security?
+		\begin{itemize}
+			\item
+				Can we change the system, such that the security problem does not occur at all?
+			\item
+				How accurate is the system going to be? (False positives create mistrust!)
+			\item
+				Does the automation reduce the burden of the end user?
+			\item
+				How inform the users about the state of the system?
 		\end{itemize}
 \end{itemize}
+
+\section{Warnings}
+\begin{itemize}
+	\item
+		Most prominent interaction mechanism between IT security and users
+	\item
+		ISO 7010:2011
+		\begin{itemize}
+			\item
+				Signs are international
+			\item
+				Prohibition sign (red)
+			\item
+				Warning, possible danger (yellow/black triangles)
+			\item
+				Mandatory action/ must do (blue and round)
+		\end{itemize}
+	\item
+		No corresponding regulation for digital warnings
+	\item
+		There are passive warnings, indicators (visible to the user, do not require immediate action)
+
+		Example: padlock for SSL, antivirus, phishing warnings
+	\item
+		and active warnings (block program execution, require immediate action)
+
+		Install warning (\enquote{do you really wanna do this?}), SSL certificate warning
+	\item
+		Many false positives with SSL/TLS warnings
+	\item
+		Antivirus: true positivtes might be too low, fp should be very low
+\end{itemize}
+
+\subsection{Passive Warnings (Indicators)}
+\begin{itemize}
+	\item
+		\fullcite{cranor2006they}
+		\begin{itemize}
+			\item
+				Indicators in virtual world are difficult to understand
+			\item
+				Does the indicator behave correctly? Is the software capable of accurately detecting the associated conditions
+			\item
+				Is the indicator resistant to attacks designed to deceive the software?
+			\item
+				Can the indicator be spoofed, obscured or otherwise manipulated, so that users are deceived into relying on an indicator provided by the attacker, rather than one provided by the system?
+			\item
+				Do the users behave correctly? Do they notice the indicator? Do they know what it means? Do users know what they are supposed to do? Do they actually do it?
+			\item How does the indicator interact with other indicators? (Maybe another indicator that looks the same?)
+		\end{itemize}
+	\item
+		Example: unicode attack on browsers, punycode
+	\item
+		Wu et al: \enquote{Do security toolbars actually prevent phishing attacks?} Short answer: no, users didn't notice
+	\item
+		Lin et al: \enquote{Does domain highlighting help people identify phishing sites?} Short answer: no
+	\item
+		Trust cues in Websites:
+		\begin{itemize}
+			\item
+				Brand familiarity (does it look like it belongs to the corresponding company?)
+			\item
+				Content and functionality (Inconsistencies in appearance or language, can I log in?)
+			\item
+				None of these cues work for phishing
+		\end{itemize}
+	\item
+		Chrome and FF started calling HTTP websites insecure:
+		\begin{itemize}
+			\item
+				Providers are rolling out more TLS, to avoid getting called insecure
+			\item
+				Phishers are rolling out TLS too
+
+				How do they get certificates? Let's encrypt
+		\end{itemize}
+\end{itemize}
+\subsection{Active Warnings}
+\begin{itemize}
+	\item
+		Active warnings should help user decide by asking questions the user is actually qualified to answer
+		\begin{itemize}
+			\item
+				Does the user know what a phishing website is?
+			\item
+
+		\end{itemize}
+	\item
+		Schecter et al \enquote{The emperor's new security indicators} about active Warnings
+		\begin{itemize}
+			\item
+				Role playing (+priming) and personal accounts
+		\end{itemize}
+	\item
+		\fullcite{felt2015improving}
+		\begin{itemize}
+			\item
+				Warnings don't work
+			\item
+				except for very frightening and difficult to circumvent warnings
+		\end{itemize}
+	\item
+		Seeing the same warning 10 -- 15 times leads to habituation, no matter what the warning is doing
+	\item
+		Warning types: comparison
+		\begin{itemize}
+			\item
+				Passive Warnings / Indicators: don't interrupt user, but highly ineffective: usually not noticed, if noticed poorly understood
+			\item
+				Active Warnings: Always noticed, but interrupt the user. Highly ineffective too: \enquote{always click ok}, also poorly understood
+		\end{itemize}
+	\item
+		Factors Influencing Reaction to Warnings?
+		\begin{itemize}
+			\item
+				Consequences of following or ignoring the warnings (based on previous interactions)
+			\item
+				Personal variables (Expertise, age, gender, knowledge)
+			\item
+				Content (understandable? actionable?)
+			\item
+				Design
+			\item
+				Situation (primary task? Distraction?)
+			\item
+				Timing
+			\item
+				Habituation
+			\item
+				Generalization (Habituation to some events, can transfer to similar events)
+			\item
+				Accuracy (The boy who cried wolf)
+		\end{itemize}
+	\item
+		\fullcite{meyer2004conceptual}
+
+		\begin{itemize}
+			\item
+				Warnings in complex systems, e.g. pilots in cockpit, operator in control room of nuclear facility, physician or nurse in ICU
+			\item
+				Sometimes it's better not to follow warning
+			\item
+				Warnings are only part of the relevant information
+			\item
+				Reactions to warnings:
+				\begin{itemize}
+					\item
+						Compliance: Cry-wolf phenomenon: no trust in warnings, full reliance on additional information
+					\item
+						Reliance: if no warning, then everything's okay, don't act. Automation bias: full trust in warnings, no additional information considered
+				\end{itemize}
+			\item
+				Assumptions: experienced operator, warning noticed, warning understood
+			\item
+				3 Factors influencing reactions to warnings:
+				\begin{itemize}
+					\item
+						Normative Factors: Diagnostic factors (what do I know about the warning?) and situational factors (What happened the last time, when this warning showed up? Probabilities of danger? Costs and Benefits? When sensor says patient is dying, I better act)
+					\item
+						Task Factors: Design Factors/Interface (how is the warning presented?), Task structure (what other stuff do I have to do), Task demands (stress, tired, \dots)
+
+					\item
+						Operator Factors: General Characteristics (ability, training, experience, personality characteristics), System specific characteristics (how trustworthy do I think the system is, what are my practices while working with it?)
+					\item
+						All leading to Evaluation of Event and Information Integration, leading to operator's response
+				\end{itemize}
+			\item
+				Can also be used to evaluate casual users
+		\end{itemize}
+	\item
+
+		Is compliance with warnings always the correct reaction?
+		\begin{itemize}
+			\item
+				No, sometimes probability of attack/failure is low enough and cost of responding to an attack high enough, that it's not sensible to respond to every warning
+		\end{itemize}
+	\item
+		Case Study: SSL Warnings
+		\begin{itemize}
+			\item
+				No evidence for anyone ever being protected from harm because of certificate error
+			\item
+				approx 99\% of SSL warnings that users see are false positives
+			\item
+				Real attacks don't even give cert errors (Iranian MitM on DigiNotar)
+			\item
+				Which additional information can help?
+				\begin{itemize}
+					\item
+						Popularity of Websites: facebook should not generate warnings
+					\item
+						Purpose of Websites: online banking should not generate warnings
+					\item
+						Task of the user:
+						Can MitM attack get any useful information? Logins, \dots
+					\item
+						Political situation in the country: is the govt likely to attack people?
+					\item
+						Personality of user: high risk (dissidents, criminals)
+				\end{itemize}
+		\end{itemize}
+	\item
+		So let's make warnings: 
+		\begin{itemize}
+			\item
+				Better designed
+			\item
+				More understandable
+			\item
+				More persuasive
+			\item
+				More frightening
+			\item
+				More difficult to surpass
+		\end{itemize}
+		Without considering their payoff structure
+		
+		Masterarbeit!
+	\item
+		More is not the answer, Cormac Herley
+		\begin{itemize}
+			\item
+				Lot of progress made on pointing out failures of security UI, not so much on the successes of security UI
+			\item
+				Problems in usable security
+				\begin{itemize}
+					\item
+						Scale and diversity of the web
+					\item
+						Competition for user attention (users do not pay attention to every warning)
+					\item
+						Persuasion rather than mandates (don't just block bad ssl sites, persuade users to behave more safely)
+				\end{itemize}
+			\item
+				Antivirus is accepted by users
+			\item
+				Can we protect users less badly?
+			\item
+				Principles:
+				\begin{itemize}
+					\item
+						Never give an order you know will be disobeyed (e.g. password guidelines)
+					\item
+						when you don't know say you don't know (ssl warnings, \enquote{chose safe passwords} after security incident)
+					\item
+						Don't deny the obvious (passwords, ssl warnings, \dots)
+					\item
+						Be prepared to admit mistakes (if password database is leaked, inform your customers!)
+				\end{itemize}
+		\end{itemize}
+
+		
+\end{itemize}
+
+\section{Privacy}
+\begin{itemize}
+	\item
+		Privacy = protection goal
+	\item
+		First definition: bodily / territorial privacy, \enquote{the right to be let alone}
+	\item
+		Privacy questions always arise when technological revolution takes place (first with first cameras)
+	\item
+		Information privacy: claim of individuals, groups or institutions to determine for themselves when, how and to what extent information about them is communicated to others
+
+		Important: retain control over the data, even if it is stored and processed by third parties
+	\item
+		Privacy vs. Confidentiality
+		\begin{itemize}
+			\item
+				What is similar? What is different?
+			\item
+				Is privacy the right of an individual?
+			\item
+				Assume dictatorship, everywhere cameras, \dots
+
+				Is there privacy? No, but there could be confidentiality $\Rightarrow$ can keep secrets from my neighbour
+
+			\item
+				Confidentiality: Controlled access
+			\item
+				Privacy: desire and right of control over disclosure, directly connected to human beings
+		\end{itemize}
+	\item
+		Two views of Privacy (by law)
+		\begin{itemize}
+			\item
+				USA 
+				\begin{itemize}
+					\item
+						Self regulation, market approach
+					\item
+						Economic trade-offs of sharing or withholding consumers data are left to market dynamics
+					\item
+						Strict regulation for govt records and communications
+					\item
+						Privacy violations: has real physical damage or monetary loss occurred?
+				\end{itemize}
+			\item
+				EU
+				\begin{itemize}
+					\item
+						Basic human right, detailed views differ across countries
+					\item
+						Individual human right, individual autonomy, dignity, freedom
+					\item
+						Privacy violations: moral / social consequences considered
+				\end{itemize}
+			\item
+				Other views are also possible
+		\end{itemize}
+	\item
+		Charta der Grundrechte EU
+		\begin{itemize}
+			\item
+				Recht auf Schutz der personenbezogenen Daten
+			\item
+				nur für festgelegte Zwecke und mit Einwilligung, Recht auf Auskunft und Berichtigung der Daten
+		\end{itemize}
+\end{itemize}
+
+\subsection{Consumer Privacy}
+\begin{itemize}
+	\item
+		Clustering according to Alan Westin
+		\begin{enumerate}
+			\item
+				Control about information: lost all control about personal information
+			\item
+				Trust in companies and organization: most business handle personal information properly
+			\item
+				Trust in govt and laws: existing laws provide reasonable level of protection
+		\end{enumerate}
+	\item
+		Privacy Fundamentalist
+	\item
+		Privacy Unaware
+	\item
+		Privacy Pragmatic
+	\item
+		Measuring privacy attitudes, \enquote{would a privacy fundamentalist sell their DNA for \$1000}
+		\begin{itemize}
+			\item
+				Westin Categories no correlation with: intended behavior in concrete situations, real behavior in concrete situations and attitudes in specific scenarios
+			\item
+				So are westin categories bad?
+			\item
+				Privacy Paradox: Attitudes to privacy differ considerably from privacy-preserving behavior
+
+				Strongly concerned about privacy release personal information for convenience or small rewards
+		\end{itemize}
+	\item
+		Privacy and Rationalit in Individual decision making, 2005
+		\begin{itemize}
+			\item
+				With cover story not to prime people
+			\item
+				73\% not enough privacy in today's society
+			\item
+				More than half were concerned about combining online and offline identities into data set
+			\item
+				Higher income = higher concerns
+			\item
+				From people particularly concerned about identity theft 75\% never used credit alert features
+			\item
+				From people that strongly agree with \enquote{Privacy should be protected with the help of technology} $\frac23$ never used encryption, 43\% never used email filtering, 50\% never used shredders for paper documents
+			\item
+				87\% of highly concerned about offline information gathering own  a loyality card
+			\item[$\Rightarrow$] privacy dichotomy, privacy paradox
+		\end{itemize}
+	\item
+		How could privacy be violated with a loyalty card? movement profiles, life style, health data, religion, \dots
+	\item
+		Rational Choice Theory does not work for decision making in economics and also in privacy
+
+		People are not rational when they make decisions:
+		\begin{itemize}
+			\item
+				Asymmetric information
+				\begin{itemize}
+					\item
+						data subjects know less than data holders about magnitude of data collection, usage, consequences
+					\item
+						People don't think they can be identified by date of birth, sex and zip code $\Rightarrow$ in reality, 87\% of USA population can be uniquely identified
+					\item
+						People don't know about anonymous internet browsing, anonymous online payment, protect email content
+				\end{itemize}
+			\item
+				Bounded rationality
+				\begin{itemize}
+					\item
+						Even if we had all information, we could not compute/process them all $\Rightarrow$ use simplified mental models and heuristics
+					\item
+						Who else gets data about transaction between you and the merchant? 35\% said nobody, forgot about banks and credit card companies
+					\item
+						4--12\% said I would never give away personal information for rewards and have a loyalty card
+				\end{itemize}
+			\item
+				Behavioral biases
+				\begin{itemize}
+					\item
+						Even if all information is available and could be processed, people tend to behave irrationally because of psychological distortions
+					\item
+						Immediate gratification: preference for reward at an earlier time, procrastination!
+					\item
+						Under insurance: certain high risks are not perceived as worth high insurance
+					\item
+						Projection bias: preferences now are projected into the future --- in the future I will also buy a lot of things from this store with the loyalty card
+					\item
+						Self-control bias: strive for immediate gratification, even if you know it's not good
+					\item
+						Optimism bias: my risks are lower than those of other people under similar cdonditions
+					\item
+						Cumulative risk bias: fail to perceive how many low risks accumulate over time to a large risk
+				\end{itemize}
+		\end{itemize}
+	\item
+		Privacy valuation and voluntary information disclosure heavily depends on context: who asks the questions? in which order are they asked? How are they formulated?
+	\item
+		People are not able to rationally control their privacy-related behavior! (Strong evidence for this in behavioral economics)
+	\item
+		Study with private questions, two designs (serious and not serious)
+		\begin{itemize}
+			\item
+				Participatns in the frivolous study admitted 1.7 times as much as the participants in the serious study
+			\item
+				Explanation: maybe admitting more as a joke? maybe admitting less, because it looked like an official survey?
+		\end{itemize}
+	\item
+		Experiment in shopping mall, asked name of participants and different gift cards (10\$ anonymous, 12\$ personalised)
+		\begin{itemize}
+			\item
+				Endowment effect: something that you already own is subjectively of more value to you than something that you do not own yet
+			\item
+				Given 12\$, can buy more privacy for 2\$, 10\% accepted
+			\item
+				Given 10\$, were offered 2\$ for their data, 50\% accepted
+			\item
+				Decisions depend on order in which alternatives are presented
+			\item
+				Consumers did not  decide fully rationally
+		\end{itemize}
+	\item
+		Acquisti et al \enquote{Gone in 15 seconds}
+		\begin{itemize}
+			\item
+				Notice and consent: inform people more about about what happens to their data, give them easy to use privacy controls, give thenm power to decide what to disclose and what to withhold
+			\item
+				Would this lead to better privacy decisions? (less regret about overdisclosure)
+			\item
+				Does not work, people can be distracted from their privacy preferences by small delays, irrelevant questions or events
+		\end{itemize}
+	\item
+		Summary: People cannot be expected to rationally decide about their privacy
+	\item
+		Why is rational decision making difficult? Privacy paradox (asymmetric behavior, bounded rationality, behavioral biases)
+	\item
+		Do people really engage in privacy trade-offs? Companies argue that's the case
+
+		\enquote{a majority of Americans are resigned to giving up their data -- and that is why many appear to be engaged in tradeoffs}
+		 
+		There's no support for the trade-off idea
+
+		A lot of people want to have control about their information but accept that they have only little control and they have fear of bad consequences
+
+		41\% fear of bad consequences AND resignation
+\end{itemize}
+
+\subsection{Privacy as Human Right}
+\begin{itemize}
+	\item
+		Possible Harms from Data Mining
+		\begin{itemize}
+			\item
+				Feature creep (secondary use)
+				\begin{itemize}
+					\item
+						Large amounts of gathered data call for new usage ideas
+					\item
+						Can we use this data to find out information X? to predict behavior?
+				\end{itemize}
+			\item
+				Aggregation: Small pieces of data add up into a profile
+				\begin{itemize}
+					\item
+						may unexpectedly reveal traits that people would like to hide (homosexual? pregnant? sick? mentally unstable? \dots)
+					\item
+						what if the profile is not true? \enquote{mistake} in data mining?
+					\item
+						Prilfe can be used to predict behavior / other outcomes
+				\end{itemize}
+			\item
+				Exclusion
+				\begin{itemize}
+					\item
+						People are denied certain things without knowhing why (jobs, loans, entracnes, services)
+					\item
+						If access to the data stored by third parties is not possible, then people cannot understand what's going on
+				\end{itemize}
+
+		\end{itemize}
+	\item
+		\enquote{I've got nothing to hide and other misunderstandings of Privacy}
+		\begin{itemize}
+			\item
+				Law abiding citizens don't need privacy!
+			\item
+				Not about hiding something, but about controlling what gets out and making decisions on knowledge what other people know
+			\item
+				Chilling effects
+			\item
+				Govt: we collect and analyze your data in order to protect you from terrorists! Trade-off? Physical security versus digital privacy?
+		\end{itemize}
+	\item
+		Data Retention (EU)
+		\begin{itemize}
+			\item
+				After attacks in Madrid 2004
+			\item
+				2006 first directive enacted, no content data, only traffic data (phone numbers, start and end of connection, imsi, imei, cell id of caller and callee, ip addresses)
+			\item
+				Know the social network of a person, know where and with whomn this person was at a given time, profile possible terrorists
+			\item
+				Verfassungsbeschwerde at Bundesverfassungsgericht $\Rightarrow$ violates basic privacy rights
+			\item
+				2012 EU takes legal action against germany
+			\item
+				2014 EuGH rejects EU-wide data retention law as being against EU Charta of human rights
+			\item
+				2015 new data retention law (germany)
+			\item
+				2016 EuGH rejects
+		\end{itemize}
+	\item
+		Terrorism in the US from 9/11 till 2012
+		\begin{itemize}
+			\item
+				50 cases officially named terrorist incidents, none managed to blow up a bomb, killed 16 people with guns
+			\item
+				Most plots were faciliated by FBI agents (showed people how to plan and to make bombs, then arrest them before they could do anything dangerous)
+			\item
+				Chance of US citizen to die in terrorist attack: 1 in 3.5 million per year (unacceptable risk: more than 1 in 10000 or more than 1 in 100000 per year)
+			\item
+				Post-2001 airport security is famously ineffective (Schneier 67 out of 70 tests)
+			\item
+				US-VISIT is ineffective, captured no terrorists
+			\item
+				NSA surveillance is unbelievably ineffective (one or two disrupted terrorist plots, boston bombers were undetected although one of them was on watch list)
+			\item
+				Charlie Hebdo were well known terrorists
+			\item[$\Rightarrow$] Can data retention help if the obvious measures like watching over the well-known, many times imprisoned terrorists fail?
+		\end{itemize}
+	\item
+		Data retention can be circumvented with knowledge. Terrorists are well educated!
+	\item
+		Terrorist risk overestimation leads to  overreaction
+	\item
+		\enquote{If only gay sex caused global warming}
+		\begin{itemize}
+			\item
+				Risk perception: terrorism vs. global warming
+			\item
+				terrorism much less dangerous, but risk of terrorism is perceived to be much more sever than risk from global warming
+			\item
+				Yet USA spend lots of money on terrorism prevention, but virtually nothing on global warming
+
+		\end{itemize}
+	\item
+		Risk perception
+
+		Human brain responds to threats that have 4 features
+		\begin{itemize}
+			\item
+				Originate from people
+
+				Global warming lacks mustache, difficult to imagine without a villain behind it
+
+				As social animals our brain is specialized to think about what other people are up to, looking for dangers coming from them
+
+				For long time of our history could not do anything to fight natural disaster
+			\item
+				Violate morality
+
+				Strong emotions call people to action
+			\item
+				Immediate (now, not in the future)
+
+				Mammal brain is great in avoiding immediate threats (System 1, 200 million years of development)
+
+				Ability to avoid future threats (system 2) developed quite recently, still in beta testing
+			\item
+				Change things quickly
+
+				Human brain is sensitive to quick changes, so we react to immediate danger
+
+				Cannot detect gradual changes
+		\end{itemize}
+		Reactions to these risks are often exaggerated
+	\item
+		Harms from overreaction
+		\begin{itemize}
+			\item
+				Avoid flying: more deaths in motor accidents (1000 people died in the first 3 months after 9/11 because of that)
+			\item
+				Less tourism \& business in the US
+			\item
+				Persistence of internalized fears -- persist over decades. Better solution: refocus attention on something else
+
+				Terrorist fears in the US/world population seem to be very much internalized
+			\item
+				Fear and anxiety have negative health consequences: PTSD, heart disease
+			\item
+				Political atmosphere and decisions
+
+				Fearful people demand more laws and harsher penalties
+
+				Wars
+		\end{itemize}
+	\item
+		Summary: Privacy as Human Right
+		\begin{itemize}
+			\item
+				Privacy versus surveillance:
+				\begin{itemize}
+					\item
+						Privacy is not aboud hiding bad things
+					\item
+						It's about knowing when other people know things about you making decisions based on these facts
+					\item
+						Privacy benefits are often greater than security benefits of the mass surveillance
+
+				\end{itemize}
+			\item
+				Why do people and politicians especially thing that mass surveillance is a good iea: Psychology of risk perception
+			\item
+				Why do other people think that mass surveillance is a bad idea? Serious consequences for society
+		\end{itemize}
+\end{itemize}
+
 
 \input{example_questions.tex}
 \end{document}

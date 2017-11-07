@@ -33,36 +33,208 @@
 \begin{itemize}
 	\item
 		How would you define usability?
+
+		Inwiefern ein Produkt genutzt werden kann, um ein bestimmtes Ziel zu erreichen, im Hinblick auf Effektivität, Effizienz und Zufriedenheit in einem genau spezifizierten Kontext
 	\item
 		How should usability definition be adapted when reasoning about usability of security?
+
+		Erstes Johnny paper
+
+		Security software ist usable, wenn die Personen, die die Software benutzen sollen:
+		\begin{enumerate}
+			\item
+				zuverlässig auf Security tasks aufmerksam gemacht werden
+			\item
+				herausfinden können, wie sie diese Tasks erfolgreich bewältigen können
+			\item
+				keine gefährlichen Fehler machen (können)
+			\item
+				mit dem Interface zufrieden genug sind, um es weiter zu benutzen
+		\end{enumerate}
 	\item
 		What does it mean for a security mechanism or policy to be usable?
+
+		Ein mechanismus oder eine Policy ist usable
+
+		\begin{itemize}
+			\item
+				The extent to which the mechanism or policy can be used by
+			\item
+				Specified users
+			\item
+				Um ein bestimmtes security goal (manche davon unsichtbar oder secondary für den user)
+			\item
+				und das primary goal zu erreichen
+			\item
+				Mit Effektivität, Effizienz und Zufriedenheit
+			\item
+				Während der Ausführung der spezifizierten primary tasks
+			\item
+				in einem spezifizierten context
+			\item
+				unter Einbezug von spezifizierten Attacken
+		\end{itemize}
 	\item
 		What happens if a secure system has bad usability? Examples?
+
+		user finden work-arounds, benutzen unsichere Systeme
 	\item
 		How can usability of security mechanisms be tested?
+		
+		User study with role playing
 	\item
 		What is the relation between security and usability? In which cases do they constitute a trade-off? How can they be aligned with each other?
+
+		Security verbietet, usability erlaubt
+
+	  Usability erlaubt gute Dinge, Security verbietet böse Dinge
+
+		Im Besten Fall unsichtbare Security, funktioniert einfach!
 	\item
 		Which three approaches do you know making security usable? Discuss advantages and disadvantages, give examples
+
+		Unsichtbare Security, funktioniert einfach, technische Limits durch schlechte Accuracy, manchmal auch nicht sinnvolle Sachen tun wollen
+
+		Understandable security: sichtbar und intuitiv machen. Schwierig unbedarften Nutzern die Hintergründe näher zu bringen, passende Metaphern/Analogien zu finden
+
+		User education: Funktioniert nicht so gut, kostet Zeit und Geld (lohnt sich oft nicht $\Rightarrow$ phishing education!), User muss Dinge verstehen,  User muss motiviert sein!
 	\item
 		What other system properties, apart from usability should be satisfied in order for the system to be accepted
 	\item
 		You are commisioned to develop a security mechanism X / security policy Y. How would you organize the development process?
+
+		Identify S\&P Goals and attacks, measures, effective?, efficient?
+
+		Sinnvollerweise security schon von Anfang an der Entwicklung Teil des Produktes. Oft schwierig Security später mit einzubauen
 \end{itemize}
 
 \subsection{Cyberfraud}
 \begin{itemize}
 	\item
 		Why is phishing an important security threat? What difficulties people have in recognizing phish?
+
+		Passwörter können abhanden kommen, schwierig automatisch zu identifizieren, kann über verschiedene Kanäle kommen.
+		User haben falsche Entscheidungs strategien um festszustellen was Phishing ist: (Email für mich, von normaler Firma, die machen das so), (Neugier, Plausibler Content), schauen oft nur auf Content der Website, nicht auf Security Indicators
 	\item
 		How to determine which measures against phishing are economically justifiable? Which kind of data you need in order to answer the question? (no need for statistics from the lecture)
+
+		Jährliche Kosten durch Phishing / Potentiell betroffene Personen (Internet User) = Kosten / Person / Jahr
+
+		Kann man über Mindestlohn in Zeit umrechnen, ist nicht so viel
 	\item
 		Why do Nigerian scammers say they are from Nigeria?
+
+		Jemand der so eine doofe Geschichte glaubt, kann quasi dazu gebracht werden alles zu glauben. \enquote{Intelligentere} Leute fallen da schon nicht drauf rein, sind also keine leichten Ziele
 	\item
 		What psychological tricks make people commit errors of judgement and fall for scam in consequence?
+
+		An Vertrauen und Autorität appelieren, große Gewinne, künstliche Knappheit (nur jetzt, sonst zu spät!), commitment (immer nur kleine Schritte machen)
 	\item
 		Explain principles of psychological influence with security-related examples
+		\begin{itemize}
+			\item
+				Erwiderung: Phishing email (wir haben das für dich getan, jetzt musst du das hier noch bestätigen\dots und dein Passwort eingeben)
+			\item
+				Commitment: Scam emails
+			\item
+				Social proof: In Phishing Email: \enquote{5000 Personen haben die neuen AGBs schon bestätigt\dots und ihr Passwort eingegeben}
+			\item
+				Authority: Warnungen mit Angstmachen?
+			\item
+				Liking: 
+			\item
+				Scarcity: In Scam Emails (schnell machen!)
+
+		\end{itemize}
+
 	\item
 		(Transfer) Is user education a good measure against phishing or social engineering for home computer users / for employees? Argue your opinion!
+
+		For home users: effort doesn't match benefit, training might be infeasible or have negative effects, erzeugt Angst (bringt Leute mehr davon ab Online Banking zu benutzen als tatsächlicher Identity Theft!)
+\end{itemize}
+
+\subsection{User education, Awareness, training}
+\begin{itemize}
+	\item
+		Awareness, education, training: what are the differences between these terms?
+
+		Awareness = Wissen um Angriffe, education = Wissen um Verteidignungsmaßnahmen, Training = Richtiges Verhalten
+	\item
+		What are pros and cons of security measures that try to change the users by means of awareness, education and training?
+
+		Schwierig für User, zu schwierig. Gibt Verantwortung an die falschen (devs und admins sollten für Sicherheit verantworlich sein!). Macht Leuten Angst (Online banking, id theft vs. fear mongering)
+	\item
+		In which cases is a fear-inducing security message a good idea? (Explain the extended parallel processing model, awareness poster for identity theft)
+
+		Stimulus kommt an (nachricht, warnung)
+
+		First appraisal: perceived threat = entweder weiter zu 2nd appraisal oder kein Threat wahrgenommen
+
+		Second appraisal: Perceived efficay, dann wenn Wirksame Gegenmaßnahme möglich protection motivation und adaptive changes, falls keine wirksamen Gegenmaßnahmen möglich/bekannt dann defensive motivation und maladaptive changes
+	\item
+		Which factors should be considered when designing a user education campaign?
+\end{itemize}
+
+\subsection{Warnings}
+\begin{itemize}
+	\item
+		Compare and constrast passive and active warnings
+
+		Passive: Indikatoren, sehr ineffektiv, oft gar nicht bemerkt
+
+		Aktive: Unterbrechen User, oft auch ineffektiv, Automatische Antwort (einfach wegklicken), oft nicht verstanden
+	\item
+		What makes a good/bad warning or indicator? Examples?
+	\item
+		Which factors influence responses to warnings?
+	\item
+		Which issues arise when security experts want people to comply with security warnings?
+	\item
+		In which cases can non-compliance with a warning be a better decision than compliance?
+\end{itemize}
+
+\subsection{Privacy}
+\begin{itemize}
+	\item
+		How would you define Privacy? What is the difference between privacy and confidentiality?
+	\item
+		How do the views on privacy differ between EU and USA?
+	\item
+		What is the Westin privacy index used for? What problems exist with the usage of this index?
+	\item
+		Explain the meaning of privacy paradox / privacy dichotomy
+	\item
+		Explain the rational choice theory in economics and how decision making  in privacy deviates from it
+	\item
+		Explain and give examples of
+		\begin{itemize}
+			\item
+				Asymmetric information
+			\item
+				Bounded rationality
+			\item
+				Behavioral biases
+		\end{itemize}
+	\item
+		Give examples on how the decisions to share or to withhold sensitive information are dependent on the context in which the request for information is made
+		\begin{itemize}
+			\item
+				Seriousness
+			\item
+				Endowment effect / order effect
+		\end{itemize}
+	\item
+		Why is privacy considered to be a human right? What are the serious consequences for individuals and society if privacy is violated?
+		\begin{itemize}
+			\item
+				Feature creep, aggregation, exclusion
+			\item
+				Problems with the \enquote{I've got nothing to hide} argument
+		\end{itemize}
+	\item
+		What are arguments for and against data retention?
+	\item
+		Is NSA-type surveillance a good measure against crime and terrorism? Argue why or why not, (depending on you opinion) and give examples
+	\item
+		What role does risk overestimation play in the societal and political debate about data retention / NSA surveillance? Explain how and why risk overestimation happens and what are the consequences of overreaction.
 \end{itemize}
